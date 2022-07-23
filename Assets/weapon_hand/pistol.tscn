@@ -1,0 +1,270 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://weapons_pack_guns/guns/obj_mtl/pistol-coonan.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Assets/weapon_hand/gun_in_hand_script.gd" type="Script" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.00784314, 0, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.333333, 0.278431, 0.278431, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.627451, 0.576471, 0.576471, 1 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "appear"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("pistol-coonan:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0.528646, 0.132149 ), Vector3( 0, 0, 1.2406 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("pistol-coonan:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 2.50448e-06, -90, 90 ), Vector3( 0, -90, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "disappear"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("pistol-coonan:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 1.2406 ), Vector3( 0, 0.528646, 0.132149 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("pistol-coonan:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ), Vector3( 2.50448e-06, -90, 90 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "recoil"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("pistol-coonan:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("pistol-coonan:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -1.6777e-07, -90, 0 ), Vector3( 1.25224e-06, -90, 30 ), Vector3( -1.6777e-07, -90, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("pistol-coonan:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 1.2406 ), Vector3( 0, 0, 1.141 ), Vector3( 0, 0, 1.2406 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Particles:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Particles2:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 2.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("pistol-coonan:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.1, 1.6, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ), Vector3( 2.18948e-13, -90, 180 ), Vector3( 0, -90, 360 ), Vector3( 0, -90, 360 ), Vector3( 0, -90, 180 ), Vector3( 0, -90, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("pistol-coonan:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+
+[sub_resource type="ParticlesMaterial" id=8]
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3( 0, 0, 0 )
+spread = 90.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_color = Color( 0.945098, 0.784314, 0.0470588, 1 )
+emission_enabled = true
+emission = Color( 0.909804, 0.768627, 0.0117647, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SphereMesh" id=10]
+material = SubResource( 9 )
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SpatialMaterial" id=11]
+albedo_color = Color( 0.968627, 0.247059, 0.054902, 1 )
+emission_enabled = true
+emission = Color( 0.976471, 0.0431373, 0.0431373, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SphereMesh" id=12]
+material = SubResource( 11 )
+radius = 0.1
+height = 0.2
+
+[node name="pistol" type="Spatial"]
+script = ExtResource( 2 )
+type = "pistol"
+damage = 30
+max_ammo = 15
+current_ammo = 15
+cooldown_time = 0.2
+recoil_value = 1.0
+
+[node name="pistol-coonan" type="MeshInstance" parent="."]
+transform = Transform( -1.31134e-07, 8.78442e-09, -3, 0, 3, 8.78442e-09, 3, 3.83979e-16, -1.31134e-07, 0, 0, 1.2406 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 1 )
+material/1 = SubResource( 2 )
+material/2 = SubResource( 3 )
+material/3 = null
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="front" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.154737, 1.64008 )
+
+[node name="animation" type="AnimationPlayer" parent="."]
+playback_speed = 2.0
+anims/appear = SubResource( 4 )
+anims/disappear = SubResource( 5 )
+anims/recoil = SubResource( 6 )
+anims/reload = SubResource( 7 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.158953, 1.70596 )
+emitting = false
+amount = 4
+lifetime = 0.15
+one_shot = true
+process_material = SubResource( 8 )
+draw_pass_1 = SubResource( 10 )
+
+[node name="Particles2" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.158953, 1.70596 )
+emitting = false
+amount = 4
+lifetime = 0.15
+one_shot = true
+process_material = SubResource( 8 )
+draw_pass_1 = SubResource( 12 )

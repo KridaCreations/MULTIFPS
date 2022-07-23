@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://weapons_pack_guns/guns/obj_mtl/pistol-coonan.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Assets/weapon_drop/dropped_gun.gd" type="Script" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.00784314, 0, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.333333, 0.278431, 0.278431, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.627451, 0.576471, 0.576471, 1 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.624623, 0.468467, 0.21596 )
+
+[node name="pistol" type="Area" groups=[
+"drop_weapons",
+]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 2 )
+type = "pistol"
+dropped_height = 2.046
+
+[node name="pistol-coonan" type="MeshInstance" parent="."]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 1 )
+material/1 = SubResource( 2 )
+material/2 = SubResource( 3 )
+material/3 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 4 )

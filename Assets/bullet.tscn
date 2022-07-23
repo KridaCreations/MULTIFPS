@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://weapons_pack_guns/guns/obj_mtl/bullet-9mm.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Assets/aK47-bullet.gd" type="Script" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 1, 0.960784, 0.0196078, 1 )
+
+[sub_resource type="CapsuleShape" id=3]
+radius = 0.0266553
+height = 2.0
+
+[node name="bullet" type="Area" groups=[
+"bullet",
+]]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+collision_mask = 3
+script = ExtResource( 2 )
+speed = 2.0
+
+[node name="bullet-9mm" type="MeshInstance" parent="."]
+transform = Transform( -6.55671e-07, 0, 15, 0, 15, 0, -15, 0, -6.55671e-07, -0.00459294, 0, -0.00459296 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 1 )
+material/1 = SubResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0045929, 0, -1.00164 )
+shape = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

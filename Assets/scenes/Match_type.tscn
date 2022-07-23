@@ -1,0 +1,195 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/scenes/Panel_oneonone.gd" type="Script" id=1]
+[ext_resource path="res://Assets/scenes/Match_type.gd" type="Script" id=2]
+
+[node name="Match_type" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.176471, 0.168627, 0.168627, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="oneononebutton" type="Button" parent="."]
+margin_left = 406.0
+margin_top = 177.0
+margin_right = 674.0
+margin_bottom = 241.0
+text = "1 vs 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="deathMatch button" type="Button" parent="."]
+margin_left = 406.0
+margin_top = 282.833
+margin_right = 674.0
+margin_bottom = 346.833
+disabled = true
+text = "Death Match"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel_oneonone" type="Panel" parent="."]
+margin_left = 260.0
+margin_top = 148.022
+margin_right = 760.0
+margin_bottom = 448.022
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSlider" type="HSlider" parent="Panel_oneonone"]
+margin_left = 138.849
+margin_top = 141.022
+margin_right = 336.849
+margin_bottom = 157.022
+value = 5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Node2D" type="SpinBox" parent="Panel_oneonone"]
+margin_left = 372.165
+margin_top = 134.812
+margin_right = 446.165
+margin_bottom = 158.812
+value = 5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="id" type="SpinBox" parent="Panel_oneonone"]
+margin_left = 146.0
+margin_top = 92.9782
+margin_right = 220.0
+margin_bottom = 116.978
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Done" type="Button" parent="Panel_oneonone"]
+margin_left = 88.6447
+margin_top = 228.841
+margin_right = 156.645
+margin_bottom = 263.841
+text = "Done"
+
+[node name="Cancel" type="Button" parent="Panel_oneonone"]
+margin_left = 322.0
+margin_top = 228.841
+margin_right = 390.0
+margin_bottom = 263.841
+text = "Cancel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel_oneonone"]
+margin_left = 26.3607
+margin_top = 125.0
+margin_right = 119.361
+margin_bottom = 167.0
+text = "No of matches"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="id_no" type="Label" parent="Panel_oneonone"]
+margin_left = 26.2269
+margin_top = 82.3462
+margin_right = 119.227
+margin_bottom = 124.346
+text = "id no"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Label3" type="Label" parent="Panel_oneonone"]
+margin_left = 25.5198
+margin_top = 42.0411
+margin_right = 118.52
+margin_bottom = 84.0411
+text = "username"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="username" type="LineEdit" parent="Panel_oneonone"]
+margin_left = 146.0
+margin_top = 55.0
+margin_right = 337.0
+margin_bottom = 79.0
+
+[node name="Panel_deathmatch" type="Panel" parent="."]
+visible = false
+margin_left = 260.0
+margin_top = 148.022
+margin_right = 760.0
+margin_bottom = 448.022
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSlider" type="HSlider" parent="Panel_deathmatch"]
+margin_left = 124.0
+margin_top = 109.0
+margin_right = 322.0
+margin_bottom = 125.0
+
+[node name="Node2D" type="SpinBox" parent="Panel_deathmatch"]
+margin_left = 353.194
+margin_top = 109.0
+margin_right = 427.194
+margin_bottom = 133.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSlider2" type="HSlider" parent="Panel_deathmatch"]
+margin_left = 124.0
+margin_top = 59.0533
+margin_right = 322.0
+margin_bottom = 75.0533
+
+[node name="Node2D2" type="SpinBox" parent="Panel_deathmatch"]
+margin_left = 353.194
+margin_top = 59.0533
+margin_right = 427.194
+margin_bottom = 83.0533
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Done" type="Button" parent="Panel_deathmatch"]
+margin_left = 124.0
+margin_top = 185.0
+margin_right = 192.0
+margin_bottom = 220.0
+text = "Done"
+
+[node name="Cancel" type="Button" parent="Panel_deathmatch"]
+margin_left = 304.165
+margin_top = 185.0
+margin_right = 372.165
+margin_bottom = 220.0
+text = "Cancel"
+
+[connection signal="pressed" from="oneononebutton" to="." method="_on_oneononebutton_pressed"]
+[connection signal="value_changed" from="Panel_oneonone/HSlider" to="Panel_oneonone" method="_on_HSlider_value_changed"]
+[connection signal="value_changed" from="Panel_oneonone/Node2D" to="Panel_oneonone" method="_on_Node2D_value_changed"]
+[connection signal="pressed" from="Panel_oneonone/Done" to="Panel_oneonone" method="_on_Done_pressed"]
+[connection signal="pressed" from="Panel_oneonone/Cancel" to="." method="_on_Cancel_pressed"]

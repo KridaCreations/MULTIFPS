@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://weapons_pack_guns/guns/obj_mtl/sniper.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Assets/weapon_drop/dropped_gun.gd" type="Script" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.709804, 0.137255, 0.137255, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.0901961, 0.0666667, 0.0666667, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.835294, 0.760784, 0.760784, 1 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.517647, 0.133333, 0.133333, 1 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.101961, 0.0470588, 0.0470588, 1 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 1.18307, 0.438497, 0.116897 )
+
+[node name="sniper" type="Area" groups=[
+"drop_weapons",
+]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 2 )
+type = "sniper"
+dropped_height = 1.866
+
+[node name="sniper" type="MeshInstance" parent="."]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 1 )
+material/1 = SubResource( 2 )
+material/2 = SubResource( 3 )
+material/3 = SubResource( 4 )
+material/4 = SubResource( 5 )
+material/5 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 6 )

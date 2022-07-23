@@ -1,0 +1,296 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://weapons_pack_guns/guns/obj_mtl/sniper.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Assets/weapon_hand/gun_in_hand_script.gd" type="Script" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.709804, 0.137255, 0.137255, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.0901961, 0.0666667, 0.0666667, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.835294, 0.760784, 0.760784, 1 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.517647, 0.133333, 0.133333, 1 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.101961, 0.0470588, 0.0470588, 1 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3( 0, 0, 0 )
+spread = 90.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+
+[sub_resource type="SpatialMaterial" id=10]
+albedo_color = Color( 0.945098, 0.784314, 0.0470588, 1 )
+emission_enabled = true
+emission = Color( 0.909804, 0.768627, 0.0117647, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SphereMesh" id=11]
+material = SubResource( 10 )
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SpatialMaterial" id=12]
+flags_no_depth_test = true
+albedo_color = Color( 0.968627, 0.247059, 0.054902, 1 )
+emission_enabled = true
+emission = Color( 0.976471, 0.0431373, 0.0431373, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SphereMesh" id=13]
+material = SubResource( 12 )
+radius = 0.1
+height = 0.2
+
+[sub_resource type="Animation" id=6]
+resource_name = "appear"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Spatial/sniper:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.0123934, 0.125509, 0.28072 ), Vector3( 0.0123934, 0.125509, 1.28072 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Spatial/sniper:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 2.50437e-06, -90, 89.46 ), Vector3( 0, -90, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "disappear"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Spatial/sniper:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.0123934, 0.125509, 1.28072 ), Vector3( 0.0123934, 0.125509, 0.28072 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Spatial/sniper:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ), Vector3( 2.50437e-06, -90, 89.46 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "recoil"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Spatial:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.02, 0.15, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, -0.2338 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 0.0600462 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Spatial:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -13.165, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 7.139, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Spatial/Particles:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Spatial/Particles2:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 1.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Spatial/sniper:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 0.9, 1.1, 1.6, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.0123934, 0.125509, 1.28072 ), Vector3( 0.0123934, 0.125509, 1.88072 ), Vector3( 0.0123934, 0.125509, 1.88456 ), Vector3( 0.0123934, 0.125509, 1.76024 ), Vector3( 0.0123934, 0.125509, 1.88456 ), Vector3( 0.0123934, 0.125509, 1.88072 ), Vector3( 0.0123934, 0.125509, 1.28072 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Spatial/sniper:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 0.9, 1.3, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ), Vector3( -90, -90, 0 ), Vector3( -90, -90, 0 ), Vector3( -90, -90, 0 ), Vector3( 0, -90, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Spatial/sniper:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+
+[node name="sniper" type="Spatial"]
+script = ExtResource( 2 )
+type = "sniper"
+damage = 100
+max_ammo = 7
+current_ammo = 7
+cooldown_time = 0.5
+recoil_value = 0.5
+
+[node name="Spatial" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0539538 )
+
+[node name="sniper" type="MeshInstance" parent="Spatial"]
+transform = Transform( -6.55669e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 0.0123934, -0.0368519, 0.826109 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 1 )
+material/1 = SubResource( 2 )
+material/2 = SubResource( 3 )
+material/3 = SubResource( 4 )
+material/4 = SubResource( 5 )
+material/5 = null
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Particles" type="Particles" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0114148, 0.0537475, 1.99688 )
+emitting = false
+amount = 4
+lifetime = 0.15
+one_shot = true
+process_material = SubResource( 9 )
+draw_pass_1 = SubResource( 11 )
+
+[node name="Particles2" type="Particles" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0114148, 0.0537475, 1.99688 )
+emitting = false
+amount = 4
+lifetime = 0.15
+one_shot = true
+process_material = SubResource( 9 )
+draw_pass_1 = SubResource( 13 )
+
+[node name="front" type="Position3D" parent="."]
+transform = Transform( 1.13247e-07, 0, -1.5, 0, 1.5, 0, 1.5, 0, 1.13247e-07, 0.0123934, 0.214627, 2.45198 )
+
+[node name="animation" type="AnimationPlayer" parent="."]
+anims/appear = SubResource( 6 )
+anims/disappear = SubResource( 7 )
+anims/recoil = SubResource( 14 )
+anims/reload = SubResource( 8 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+
+[connection signal="animation_finished" from="animation" to="." method="_on_animation_animation_finished"]

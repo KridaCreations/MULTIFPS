@@ -1,0 +1,345 @@
+[gd_scene load_steps=34 format=2]
+
+[ext_resource path="res://Assets/weapon_hand/pistol.tscn" type="PackedScene" id=1]
+[ext_resource path="res://kenney_prototypetextures/PNG/Green/texture_01.png" type="Texture" id=2]
+[ext_resource path="res://scripts/player.gd" type="Script" id=3]
+[ext_resource path="res://kenney_prototypetextures/PNG/Red/texture_02.png" type="Texture" id=4]
+[ext_resource path="res://kenney_prototypetextures/PNG/Orange/texture_02.png" type="Texture" id=5]
+[ext_resource path="res://kenney_prototypetextures/PNG/Purple/texture_02.png" type="Texture" id=6]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 40, 20, 20 )
+
+[sub_resource type="CubeMesh" id=2]
+material = SubResource( 1 )
+size = Vector3( 90, 2, 50 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 45, 1, 25 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 45, 25, 2 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_texture = ExtResource( 4 )
+uv1_scale = Vector3( 20, 10, 1 )
+
+[sub_resource type="CubeMesh" id=6]
+material = SubResource( 5 )
+size = Vector3( 90, 50, 2 )
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 1, 25, 27 )
+
+[sub_resource type="PlaneMesh" id=8]
+material = SubResource( 5 )
+size = Vector2( 50, 55 )
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_texture = ExtResource( 5 )
+uv1_scale = Vector3( 20, 10, 1 )
+
+[sub_resource type="CubeMesh" id=10]
+material = SubResource( 9 )
+size = Vector3( 50, 2, 10 )
+
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 25, 1, 5 )
+
+[sub_resource type="BoxShape" id=12]
+extents = Vector3( 1.57937, 2.53679, 7.49223 )
+
+[sub_resource type="SpatialMaterial" id=13]
+albedo_texture = ExtResource( 6 )
+uv1_scale = Vector3( 20, 10, 1 )
+uv1_triplanar = true
+
+[sub_resource type="CubeMesh" id=14]
+material = SubResource( 13 )
+size = Vector3( 3, 5, 15 )
+
+[sub_resource type="CylinderMesh" id=15]
+top_radius = 0.6
+bottom_radius = 0.6
+height = 1.25
+
+[sub_resource type="SpatialMaterial" id=16]
+albedo_color = Color( 0.960784, 0.505882, 0.101961, 1 )
+
+[sub_resource type="CylinderShape" id=17]
+radius = 0.6
+height = 1.22395
+
+[sub_resource type="SphereMesh" id=18]
+radius = 0.7
+height = 1.4
+
+[sub_resource type="SpatialMaterial" id=19]
+albedo_color = Color( 0.980392, 0.917647, 0, 1 )
+
+[sub_resource type="CubeMesh" id=20]
+size = Vector3( 1.394, 0.3, 0.75 )
+
+[sub_resource type="SpatialMaterial" id=21]
+albedo_color = Color( 0.0313726, 0.027451, 0.027451, 1 )
+
+[sub_resource type="SphereShape" id=22]
+radius = 0.7
+
+[sub_resource type="CylinderMesh" id=23]
+top_radius = 0.75
+bottom_radius = 0.75
+height = 0.25
+
+[sub_resource type="CylinderMesh" id=24]
+top_radius = 0.75
+bottom_radius = 0.75
+height = 0.75
+
+[sub_resource type="SpatialMaterial" id=25]
+albedo_color = Color( 0.647059, 0.478431, 0.478431, 1 )
+
+[sub_resource type="CylinderShape" id=26]
+radius = 0.75
+height = 0.75
+
+[sub_resource type="CylinderShape" id=27]
+height = 3.90694
+
+[node name="Level_1vs1" type="Spatial"]
+
+[node name="Map" type="Spatial" parent="."]
+
+[node name="OmniLight" type="OmniLight" parent="Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 16, 0 )
+omni_range = 55.9
+
+[node name="OmniLight2" type="OmniLight" parent="Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 16, 0 )
+omni_range = 55.9
+
+[node name="1st_floor" type="StaticBody" parent="Map"]
+
+[node name="MeshInstance" type="MeshInstance" parent="Map/1st_floor"]
+use_in_baked_light = true
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/1st_floor"]
+shape = SubResource( 3 )
+
+[node name="wall_right" type="StaticBody" parent="Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 33 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/wall_right"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, -7 )
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Map/wall_right"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, -7 )
+use_in_baked_light = true
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="wall_left" type="StaticBody" parent="Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/wall_left"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, -7 )
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Map/wall_left"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, -7 )
+use_in_baked_light = true
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="wall_front" type="StaticBody" parent="Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 15, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/wall_front"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 0 )
+shape = SubResource( 7 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Map/wall_front"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 9, 0 )
+mesh = SubResource( 8 )
+material/0 = null
+
+[node name="wall_back" type="StaticBody" parent="Map"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -45, 15, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/wall_back"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 0 )
+shape = SubResource( 7 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Map/wall_back"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 9, 0 )
+mesh = SubResource( 8 )
+material/0 = null
+
+[node name="2nd_floor" type="CSGMesh" parent="Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 33.961, 0 )
+use_in_baked_light = true
+use_collision = true
+mesh = SubResource( 2 )
+
+[node name="CSGBox" type="CSGBox" parent="Map/2nd_floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20 )
+operation = 2
+width = 35.337
+depth = 10.0
+
+[node name="CSGBox2" type="CSGBox" parent="Map/2nd_floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20 )
+operation = 2
+width = 35.337
+depth = 10.0
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Map"]
+transform = Transform( 0.836516, -0.177305, -0.518463, 0.5, -0.140057, 0.854625, -0.224144, -0.974139, -0.0285078, 0, 38, 0 )
+shadow_enabled = true
+
+[node name="stair1" type="StaticBody" parent="Map"]
+transform = Transform( 0.733991, 0.67916, 0, -0.67916, 0.733991, 0, 0, 0, 1, 0, 17.248, 20 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Map/stair1"]
+mesh = SubResource( 10 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/stair1"]
+shape = SubResource( 11 )
+
+[node name="stair2" type="StaticBody" parent="Map"]
+transform = Transform( -0.733991, -0.67916, -8.74228e-08, -0.67916, 0.733991, 0, 6.41675e-08, 5.9374e-08, -1, 0, 17.248, -20 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/stair2"]
+transform = Transform( 1, 2.98023e-08, -7.10543e-15, -2.98023e-08, 1, 7.10543e-15, -1.42109e-14, -3.55271e-15, 1, 0, 0, 0 )
+shape = SubResource( 11 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Map/stair2"]
+mesh = SubResource( 10 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 3, 17.461 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/StaticBody"]
+shape = SubResource( 12 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Map/StaticBody"]
+mesh = SubResource( 14 )
+material/0 = null
+
+[node name="StaticBody2" type="StaticBody" parent="Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 3, -17.461 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/StaticBody2"]
+shape = SubResource( 12 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Map/StaticBody2"]
+mesh = SubResource( 14 )
+material/0 = null
+
+[node name="player" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.5, 0 )
+script = ExtResource( 3 )
+jump_velocity = 300
+speed = 600
+lerp_duration = 0.1
+gravity = Vector3( 0, -400, 0 )
+
+[node name="upper_body" type="Spatial" parent="player"]
+
+[node name="torso_area" type="Area" parent="player/upper_body"]
+
+[node name="body" type="MeshInstance" parent="player/upper_body/torso_area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.158924, 0 )
+mesh = SubResource( 15 )
+material/0 = SubResource( 16 )
+
+[node name="CollisionShape" type="CollisionShape" parent="player/upper_body/torso_area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19781, 0 )
+shape = SubResource( 17 )
+
+[node name="back" type="Position3D" parent="player/upper_body/torso_area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+
+[node name="front" type="Position3D" parent="player/upper_body/torso_area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 2 )
+
+[node name="left" type="Position3D" parent="player/upper_body/torso_area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, 0 )
+
+[node name="head_area" type="Area" parent="player/upper_body"]
+
+[node name="head" type="MeshInstance" parent="player/upper_body/head_area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14115, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="specs" type="MeshInstance" parent="player/upper_body/head_area/head"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.376 )
+mesh = SubResource( 20 )
+material/0 = SubResource( 21 )
+
+[node name="CollisionShape" type="CollisionShape" parent="player/upper_body/head_area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.141, 0 )
+shape = SubResource( 22 )
+
+[node name="weapon" type="Spatial" parent="player/upper_body/head_area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.841618, 0.480441, -0.132447 )
+
+[node name="pistol" parent="player/upper_body/head_area/weapon" instance=ExtResource( 1 )]
+
+[node name="Camera" type="Camera" parent="player/upper_body/head_area"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 0 )
+
+[node name="RayCast" type="RayCast" parent="player/upper_body/head_area/Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -500 )
+collide_with_areas = true
+
+[node name="rayendpoint" type="Position3D" parent="player/upper_body/head_area/Camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -500 )
+
+[node name="lower_body" type="Spatial" parent="player"]
+
+[node name="wheel_right" type="MeshInstance" parent="player/lower_body"]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.884296, -1.49573, 0 )
+mesh = SubResource( 23 )
+material/0 = null
+
+[node name="wheel_left" type="MeshInstance" parent="player/lower_body"]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.884, -1.496, 0 )
+mesh = SubResource( 23 )
+material/0 = null
+
+[node name="lower_area" type="Area" parent="player/lower_body"]
+
+[node name="lower_body" type="MeshInstance" parent="player/lower_body/lower_area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.15781, 0 )
+mesh = SubResource( 24 )
+material/0 = SubResource( 25 )
+
+[node name="CollisionShape" type="CollisionShape" parent="player/lower_body/lower_area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.158, 0 )
+shape = SubResource( 26 )
+
+[node name="CollisionShape" type="CollisionShape" parent="player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.286514, 0 )
+shape = SubResource( 27 )
+
+[node name="Timer" type="Timer" parent="player"]
+wait_time = 0.2
+one_shot = true
+
+[node name="BakedLightmap" type="BakedLightmap" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.8309, 0 )
+extents = Vector3( 49.0816, 31.2259, 27.0043 )
+
+[connection signal="area_entered" from="player/upper_body/torso_area" to="player" method="_on_torso_area_area_entered"]
+[connection signal="area_entered" from="player/upper_body/head_area" to="player" method="_on_head_area_area_entered"]
+[connection signal="area_entered" from="player/lower_body/lower_area" to="player" method="_on_lower_area_area_entered"]
+[connection signal="area_exited" from="player/lower_body/lower_area" to="player" method="_on_lower_area_area_exited"]

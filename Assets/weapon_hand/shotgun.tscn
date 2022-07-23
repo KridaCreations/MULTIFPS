@@ -1,0 +1,285 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://weapons_pack_guns/guns/obj_mtl/shotgun.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Assets/weapon_hand/gun_in_hand_script.gd" type="Script" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.188235, 0.133333, 0.133333, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.0823529, 0.0352941, 0.0352941, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.592157, 0.509804, 0.509804, 1 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.937255, 0.858824, 0.858824, 1 )
+
+[sub_resource type="ParticlesMaterial" id=8]
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3( 0, 0, 0 )
+spread = 90.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_color = Color( 0.945098, 0.784314, 0.0470588, 1 )
+emission_enabled = true
+emission = Color( 0.909804, 0.768627, 0.0117647, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SphereMesh" id=10]
+material = SubResource( 9 )
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SpatialMaterial" id=11]
+albedo_color = Color( 0.968627, 0.247059, 0.054902, 1 )
+emission_enabled = true
+emission = Color( 0.976471, 0.0431373, 0.0431373, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SphereMesh" id=12]
+material = SubResource( 11 )
+radius = 0.1
+height = 0.2
+
+[sub_resource type="Animation" id=5]
+resource_name = "appear"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Spatial/shotgun:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -5.96046e-08, 0.101701, 0.327054 ), Vector3( -5.96046e-08, -0.188522, 1.36452 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Spatial/shotgun:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 2.50448e-06, -90, 90 ), Vector3( 0, -90, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "disappear"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Spatial/shotgun:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -5.96046e-08, -0.188522, 1.36452 ), Vector3( -5.96046e-08, 0.101701, 0.327054 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Spatial/shotgun:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ), Vector3( 2.50448e-06, -90, 90 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "recoil"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Spatial:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, -0.0620689 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Spatial:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -8.099, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Spatial/Particles:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Spatial/Particles2:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, false ]
+}
+
+[sub_resource type="Animation" id=7]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Spatial/shotgun:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ), Vector3( 2.50448e-06, -90, 37.606 ), Vector3( 2.50448e-06, -90, 37.606 ), Vector3( 0, -90, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Spatial/shotgun:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -5.96046e-08, -0.188522, 1.36452 ), Vector3( -5.96046e-08, -0.188522, 1.55246 ), Vector3( -5.96046e-08, -0.0094233, 1.75588 ), Vector3( -5.96046e-08, -0.188522, 1.55246 ), Vector3( -5.96046e-08, -0.188522, 1.36452 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Spatial/shotgun:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+
+[node name="shotgun" type="Spatial"]
+script = ExtResource( 2 )
+type = "shotgun"
+damage = 50
+max_ammo = 10
+current_ammo = 10
+cooldown_time = 0.4
+recoil_value = 0.4
+
+[node name="Spatial" type="Spatial" parent="."]
+
+[node name="shotgun" type="MeshInstance" parent="Spatial"]
+transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -5.96046e-08, -0.188522, 0.44174 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 1 )
+material/1 = SubResource( 2 )
+material/2 = SubResource( 3 )
+material/3 = SubResource( 4 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Particles" type="Particles" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.107962, 1.12093 )
+emitting = false
+amount = 4
+lifetime = 0.15
+one_shot = true
+process_material = SubResource( 8 )
+draw_pass_1 = SubResource( 10 )
+
+[node name="Particles2" type="Particles" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.107962, 1.12093 )
+emitting = false
+amount = 4
+lifetime = 0.15
+one_shot = true
+process_material = SubResource( 8 )
+draw_pass_1 = SubResource( 12 )
+
+[node name="front" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.107359, 1.16124 )
+
+[node name="animation" type="AnimationPlayer" parent="."]
+anims/appear = SubResource( 5 )
+anims/disappear = SubResource( 6 )
+anims/recoil = SubResource( 13 )
+anims/reload = SubResource( 7 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

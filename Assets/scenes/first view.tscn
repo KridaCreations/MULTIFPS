@@ -1,0 +1,132 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/scenes/panel_join.gd" type="Script" id=1]
+[ext_resource path="res://Assets/scenes/first view.gd" type="Script" id=2]
+
+[node name="first view" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.176471, 0.168627, 0.168627, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Host" type="Button" parent="."]
+margin_left = 406.0
+margin_top = 177.0
+margin_right = 674.0
+margin_bottom = 241.0
+text = "Host"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Join" type="Button" parent="."]
+margin_left = 406.0
+margin_top = 282.833
+margin_right = 674.0
+margin_bottom = 346.833
+text = "Join"
+
+[node name="panel_join" type="Panel" parent="."]
+visible = false
+margin_left = 260.0
+margin_top = 148.022
+margin_right = 760.0
+margin_bottom = 448.022
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="id" type="SpinBox" parent="panel_join"]
+margin_left = 186.0
+margin_top = 150.0
+margin_right = 277.0
+margin_bottom = 199.0
+min_value = 1.0
+max_value = 100000.0
+value = 1.0
+allow_greater = true
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Done" type="Button" parent="panel_join"]
+margin_left = 100.0
+margin_top = 220.0
+margin_right = 168.0
+margin_bottom = 255.0
+text = "Done"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cancel" type="Button" parent="panel_join"]
+margin_left = 328.165
+margin_top = 220.0
+margin_right = 396.165
+margin_bottom = 255.0
+text = "Cancel"
+
+[node name="ip_address" type="LineEdit" parent="panel_join"]
+margin_left = 186.0
+margin_top = 28.9782
+margin_right = 411.0
+margin_bottom = 72.9782
+text = "localhost:5000"
+clear_button_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="name" type="LineEdit" parent="panel_join"]
+margin_left = 186.0
+margin_top = 92.9782
+margin_right = 411.0
+margin_bottom = 136.978
+clear_button_enabled = true
+
+[node name="ip_bar" type="Label" parent="panel_join"]
+margin_left = 39.0
+margin_top = 29.0
+margin_right = 168.0
+margin_bottom = 73.0
+text = "ip address"
+valign = 1
+uppercase = true
+
+[node name="name_bar" type="Label" parent="panel_join"]
+margin_left = 39.0
+margin_top = 92.9782
+margin_right = 168.0
+margin_bottom = 136.978
+text = "Username"
+valign = 1
+uppercase = true
+
+[node name="id_no" type="Label" parent="panel_join"]
+margin_left = 39.0
+margin_top = 150.0
+margin_right = 168.0
+margin_bottom = 194.0
+text = "Id no"
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Host" to="." method="_on_Host_pressed"]
+[connection signal="pressed" from="Join" to="." method="_on_Join_pressed"]
+[connection signal="pressed" from="panel_join/Done" to="panel_join" method="_on_Done_pressed"]
+[connection signal="pressed" from="panel_join/Cancel" to="." method="_on_Cancel_pressed"]

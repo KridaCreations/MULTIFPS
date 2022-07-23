@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://weapons_pack_guns/guns/obj_mtl/shotgun.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Assets/weapon_drop/dropped_gun.gd" type="Script" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.188235, 0.133333, 0.133333, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.0823529, 0.0352941, 0.0352941, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.592157, 0.509804, 0.509804, 1 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.937255, 0.858824, 0.858824, 1 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 0.672448, 0.207419, 0.0882884 )
+
+[node name="shotgun" type="Area" groups=[
+"drop_weapons",
+]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 2 )
+type = "shotgun"
+dropped_height = 1.868
+
+[node name="shotgun" type="MeshInstance" parent="."]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 1 )
+material/1 = SubResource( 2 )
+material/2 = SubResource( 3 )
+material/3 = SubResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.187955, 0 )
+shape = SubResource( 5 )

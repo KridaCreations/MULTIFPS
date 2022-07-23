@@ -1,0 +1,72 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://main_screen.gd" type="Script" id=1]
+
+[node name="main_screen" type="Control"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 1.41431
+margin_right = 1026.41
+margin_bottom = 602.0
+color = Color( 0.184314, 0.164706, 0.164706, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ip_adress" type="LineEdit" parent="."]
+margin_left = 375.0
+margin_top = 215.0
+margin_right = 670.0
+margin_bottom = 272.0
+text = "127.0.0.1:5000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 171.785
+margin_top = 214.259
+margin_right = 309.785
+margin_bottom = 273.259
+text = "Enter IP"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="no" type="SpinBox" parent="."]
+margin_left = 375.0
+margin_top = 274.0
+margin_right = 670.0
+margin_bottom = 331.0
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 171.785
+margin_top = 273.259
+margin_right = 309.785
+margin_bottom = 332.259
+text = "enter name"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 442.856
+margin_top = 393.0
+margin_right = 586.856
+margin_bottom = 468.0
+text = "DONE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
